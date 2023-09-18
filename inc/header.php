@@ -68,7 +68,7 @@
 
                         <div class="navbar-dropdown">
                             <a class="navbar-item" href="./index.php?mostrar=instructor_form">
-                                intructor
+                                instructor
                             </a>
                         </div>
                     </div>
