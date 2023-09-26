@@ -5,33 +5,33 @@
 	</div>
 
 	<div class="form-rest mb-6 mt-6 "></div>
-	<form action="./php/personal_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" >
+	<form action="./php/entidad_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" >
 		<div class="columns">
 			<div class="column">
-			  <div class="control">
-				  <label>RUC (*)</label>
-					<input class="input" type="number" name="entidad_ruc">
-			  </div>
+    <div class="control">
+				<label>RUC (*)</label>
+					<input class="input" type="number" name="ruc">
+			</div>
 			</div>
 			<div class="column">
                     <label>NOMBRE (*)</label>
-					<input class="input" type="text" name="entidad_nombre">
+					<input class="input" type="text" name="nombre">
 			</div>
 			<div class="column">
                     <label>CELULAR (*)</label>
-					<input class="input" type="number" name="entidad_celular">
+					<input class="input" type="number" name="celular">
 			</div>
 		</div>
 		<div class="columns">
 			<div class="column">
-			  <div class="control">
-				  <label>DIRECCIÓN (*)</label>
-					<input class="input" type="number" name="entidad_ruc">
-			  </div>
+			<div class="control">
+				<label>DIRECCIÓN (*)</label>
+					<input class="input" type="number" name="direccion">
+			</div>
 			</div>
 			<div class="column">
                     <label>DESCRIPCIÓN (*)</label>
-					<input class="input" type="text" name="entidad_nombre">
+					<input class="input" type="text" name="descripcion">
 			</div>
 		</div>
 		<br>

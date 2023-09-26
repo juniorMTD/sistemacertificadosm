@@ -5,13 +5,13 @@
 	</div>
 
 	<div class="form-rest mb-6 mt-6 "></div>
-	<form action="./php/personal_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" >
+	<form action="./php/usuario_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" >
 
 		<div class="columns">
 			<div class="column">
 				<div class="control">
 						<label>usuario (*)</label>
-						<input class="input" type="text" name="usuario_dni">
+						<input class="input" type="text" name="usuario">
 				</div>
 			</div>
 			<div class="column">
@@ -21,7 +21,7 @@
 			<div class="column">
 			  	<div class="control">
 				  	<label>Contraseña (*)</label>
-					<input class="input" type="password" name="usuario_celular">
+					<input class="input" type="password" name="contrasena">
 			  	</div>
 			  	<div class="column">
 				</div>
@@ -29,7 +29,7 @@
 		  	<div class="column">
 		    	<div class="control">
 					<label>Repetir Contraseña (*)</label>
-				  	<input class="input" type="password" name="usuario_cargo">
+				  	<input class="input" type="password" name="contrasena_duplicado">
 				</div>
 		  	</div>
 		</div>

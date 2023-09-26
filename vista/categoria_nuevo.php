@@ -5,13 +5,13 @@
 	</div>
 
 	<div class="form-rest mb-6 mt-6 "></div>
-	<form action="./php/personal_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" >
+	<form action="./php/categoria_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" >
 		<div class="columns">
 			<div class="column">
-			  <div class="control">
+			<div class="control">
 				<label>NOMBRE (*)</label>
-				<input class="input" type="text" name="categoria_nombre">
-			  </div>
+				<input class="input" type="text" name="nombre">
+			</div>
 			</div>
 			<div class="column"> 	
 			</div>

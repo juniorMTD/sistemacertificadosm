@@ -1,3 +1,6 @@
+<?php
+  require_once "./conexion/coneccion.php";  
+?>
 <div class="container">
     <div>
         <br>
@@ -35,8 +38,7 @@
                         <form class="has-text-centered mt-6 mb-6" action="" method="POST" autocomplete="off">
                             <input type="hidden" name="modulo_buscador" value="personal">
                             <input type="hidden" name="eliminar_buscador" value="personal">
-                            <p style="color:#000">Estas buscando <strong>"<?php echo $_SESSION['busque
-                            <button type="submit" class="button is-danger is-rounded"> Eliminar Busqueda</button>da_personal'] ?>"</strong></p>
+                            <p style="color:#000">Estas buscando <strong>""</strong></p>
                             <br>
                         </form>
                     </div>

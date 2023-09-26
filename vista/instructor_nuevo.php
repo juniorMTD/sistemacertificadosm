@@ -5,62 +5,62 @@
 	</div>
 
 	<div class="form-rest mb-6 mt-6 "></div>
-	<form action="./php/personal_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" >
+	<form action="./php/instructor_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" >
 
 		<h6 ><strong>Datos Personales</strong></h6>
 		<br>
 		<div class="columns">
 			<div class="column">
-			  <div class="control">
-				  <label>NOMBRES (*)</label>
-					<input class="input" type="text" name="instructor_nombres">
-			  </div>
+			<div class="control">
+    <label>NOMBRES (*)</label>
+					<input class="input" type="text" name="nombres">
+    </div>
 			</div>
 			<div class="column">
-			  <div class="control">
-				  <label>APELLIDOS (*)</label>
-					<input class="input" type="text" name="instructor_apellidos">
-			  </div>
+    <div class="control">
+	<label>APELLIDOS (*)</label>
+					<input class="input" type="text" name="apellidos">
+        </div>
 			</div>
 			<div class="column">
-		    	<div class="control">
+		<div class="control">
 					<label>GENERO (*)</label>
-				  	<input class="input" type="text" name="instructor_genero">
+					<input class="input" type="text" name="genero">
 				</div>
-		  	</div>
+			</div>
 			
 		</div>
 		<div class="columns">
 			<div class="column">
-		    	<div class="control">
+		<div class="control">
 					<label>CELULAR (*)</label>
-				  	<input class="input" type="number" name="instructor_celular">
+				<input class="input" type="number" name="celular">
 				</div>
-		  	</div>
+		</div>
 			<div class="column">
-		    	<div class="control">
+		<div class="control">
 					<label>CORREO (*)</label>
-				  	<input class="input" type="email" name="instructor_correo">
+				<input class="input" type="email" name="correo">
 				</div>
-		  	</div>
-		  	<div class="column">
-		    	<div class="control">
+		</div>
+		<div class="column">
+		<div class="control">
 					<label>GRADO INSTRUCCION (*)</label>
-				  	<input class="input" type="text" name="instructor_grado">
+					<input class="input" type="text" name="grado_instruccion">
 				</div>
-		  	</div>
+		</div>
 		</div>
 		<div class="columns">
 			<div class="column">
 				<div class="control">
 					<label>FIRMA DIGITAL (*)</label>
-				  	<input class="input" type="file" name="instructor_firma">
+					<input class="input" type="file" name="firma_digital">
 				</div>
 			</div>
 			<div class="column">
-		  	</div>
-		  	<div class="column">
-		  	</div>
+		</div>
+			<div class="column">
+			</div>
 		</div>
 		<br>
 		<p class="has-text-centered">

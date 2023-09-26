@@ -8,53 +8,53 @@
 
 		<div class="columns">
             <div class="column">
-			  <div class="control">
-				  <label>NOMBRES (*)</label>
+			<div class="control">
+				<label>NOMBRES (*)</label>
 					<input class="input" type="text" name="cliente_nombre">
-			  </div>
+			</div>
 			</div>
             <div class="column">
 				<div class="control">
 					<label> APELLIDO PATERNO(*)</label>
 					<input class="input" type="text" name="cliente_apelpaterno">
 				</div>
-		  	</div>
+		</div>
 			<div class="column">
 				<div class="control">
 					<label>APELLIDO MATERNO (*)</label>
 					<input class="input" type="text" name="cliente_apelmaterno">
 				</div>
-		  	</div>
+		</div>
 		</div>
 		<div class="columns">
-        	<div class="column">
-			  <div class="control">
-				  <label>DNI (*)</label>
+        <div class="column">
+			<div class="control">
+				<label>DNI (*)</label>
 					<input class="input" type="number" name="cliente_dni">
-			  </div>
 			</div>
-		  	<div class="column">
-		    	<div class="control">
+			</div>
+		<div class="column">
+		<div class="control">
 					<label>GENERO (*)</label>
-				  	<input class="input" type="text" name="cliente_genero">
+				<input class="input" type="text" name="cliente_genero">
 				</div>
-		  	</div>	
-		  	<div class="column">
-		    	<div class="control">
+		</div>	
+		<div class="column">
+		<div class="control">
 					<label>CELULAR (*)</label>
-				  	<input class="input" type="number" name="cliente_celular">
+				<input class="input" type="number" name="cliente_celular">
 				</div>
-		  	</div>
-		  	
+		</div>
+		
 		</div>
 		<div class="columns">
 			<div class="column">
-		    	<div class="control">
+		<div class="control">
 					<label>CORREO ELECTRONICO
-                         (*)</label>
-				  	<input class="input" type="text" name="cliente_correo">
+                        (*)</label>
+				<input class="input" type="text" name="cliente_correo">
 				</div>
-		  	</div>
+		</div>
 			<div class="column">
 			</div>
 		</div>

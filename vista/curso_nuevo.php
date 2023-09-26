@@ -5,14 +5,14 @@
 	</div>
 
 	<div class="form-rest mb-6 mt-6 "></div>
-	<form action="./php/personal_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" >
+	<form action="./php/curso_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" >
 		<br>
 		<div class="columns">
 			<div class="column">
-			  <div class="control">
-				  <label>CODIGO DEL CURSO (*)</label>
+			<div class="control">
+				<label>CODIGO DEL CURSO (*)</label>
 					<input class="input" type="text" name="curso_codigo">
-			  </div>
+			</div>
 			</div>
       <div class="column">
         <div class="control">
@@ -23,7 +23,7 @@
       <div class="column">
           <div class="control">
               <label>ESTADO (*)</label>
-              <input class="input" type="text" name="curso_estado">
+              <input class="input" type="text" name="estado">
           </div>
       </div>
 		</div>
@@ -31,19 +31,19 @@
       <div class="column">
           <div class="control">
               <label>FECHA DE INICIO (*)</label>
-              <input class="input" type="date" name="curso_ini">
+              <input class="input" type="date" name="inicio">
           </div>
       </div>
 			<div class="column">
           <div class="control">
               <label>FECHA DE FIN (*)</label>
-              <input class="input" type="date" name="curso_fin">
+              <input class="input" type="date" name="fin">
           </div>
       </div>
       <div class="column">
           <div class="control">
             <label>HORAS LECTIVAS (*)</label>
-            <input class="input" type="text" name="curso_lectivas">
+            <input class="input" type="text" name="lectivas">
           </div>
       </div>
     </div>
@@ -51,7 +51,7 @@
       <div class="column">
         <div class="control">
             <label>DISEÑO DE CERTIFICADO (*)</label>
-            <input class="input" type="file" name="curso_disenio">
+            <input class="input" type="file" name="disenio">
         </div>
       </div>
       <div class="column">
@@ -61,13 +61,13 @@
         <div class="column">
           <div class="control">
             <label>NOMBRE DEL DIRECTOR (*)</label>
-            <input class="input" type="text" name="curso_nombre_director">
+            <input class="input" type="text" name="nombre_director">
           </div>
         </div>
         <div class="column">
           <div class="control">
             <label>FIRMA DIRECTOR (*)</label>
-            <input class="input" type="file" name="curso_firma_director">
+            <input class="input" type="file" name="firma_director">
           </div>
         </div>
     </div>
@@ -75,13 +75,13 @@
       <div class="column">
         <div class="control">
           <label>NOMBRE DEL ESPECIALISTA (*)</label>
-          <input class="input" type="text" name="curso_nombre_especialista">
+          <input class="input" type="text" name="nombre_especialista">
         </div>
       </div>
       <div class="column">
         <div class="control">
           <label>FIRMA ESPECIALISTA (*)</label>
-          <input class="input" type="file" name="curso_firma_especialista">
+          <input class="input" type="file" name="firma_especialista">
         </div>
       </div>
     </div>
@@ -89,13 +89,13 @@
       <div class="column">
         <div class="control">
           <label>NOMBRE DEL INSTRUCTOR (*)</label>
-          <input class="input" type="text" name="curso_nombre_instructor">
+          <input class="input" type="text" name="nombre_instructor">
         </div>
       </div>
       <div class="column">
         <div class="control">
           <label>FIRMA INSTRUCTOR (*)</label>
-          <input class="input" type="file" name="curso_firma_instructor">
+          <input class="input" type="file" name="firma_instructor">
         </div>
       </div>
 		</div>
