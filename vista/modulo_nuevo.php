@@ -1,4 +1,4 @@
-<div class="container pb-6 pt-6 notification is-primary" style="background: #81BEF7;">
+<div class="container pb-6 pt-6 notification is-primary" style="background: #6F9AB0;">
 	<div class="mb-6 mt-6 ">
 	<h1 class="title center_mio">Agregar Nuevo Mo</h1>
 		<hr class="division1">
