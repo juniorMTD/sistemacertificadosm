@@ -1,5 +1,6 @@
 <?php
   require_once "./conexion/coneccion.php";  
+  require_once "./php/validadorsql.php";  
 ?>
 <div class="container">
     <div>
@@ -17,10 +18,20 @@
     <div>
 
         <div class="container pb-6 pt-6 ">
+        <?php
+
+                if(isset($_POST['modulo_buscador'])){
+                    require_once "./php/buscador.php";
+                }
+
+                if (!isset($_SESSION['busqueda_rol']) && empty($_SESSION['busqueda_rol'])) {
+
+                ?>
+
                 <div class="columns">
                     <div class="column">
                         <form action="" method="POST" autocomplete="off">
-                            <input type="hidden" name="modulo_buscador" value="personal">
+                            <input type="hidden" name="modulo_rol" value="personal">
                             <div class="field is-grouped">
                                 <P class="control is-expanded">
                                     <input class="input is-rounded" type="text" name="txt_buscador" 
@@ -33,6 +44,28 @@
                         </form>
                     </div>
                 </div>
+
+                <?php
+                    // verificar si existe o no la varible de tipo get 
+                    if (!isset($_GET['page'])) {
+                        $pagina = 1;
+                    } else {
+                        $pagina = (int) $_GET['page'];
+                        if ($pagina <= 1) {
+                            $pagina = 1;
+                        }
+                    }
+
+                    $pagina = limpiar_cadena($pagina);
+                    $url = "index.php?mostrar=rol_form&page=";
+                    $registros = 15;
+                    $busqueda = "";
+                    require_once "./php/rol_lista.php";
+
+                    
+                    } else {
+                ?>
+
                 <div class="columns">
                     <div class="column">
                         <form class="has-text-centered mt-6 mb-6" action="" method="POST" autocomplete="off">
@@ -43,6 +76,31 @@
                         </form>
                     </div>
                 </div>
+                
+                <?php
+                    //para eliminar personal
+
+                    // if(isset($_GET['idusuario_del'])){
+                    //     require_once "./php/personal_eliminar.php";
+                    // }
+
+                    // verificar si existe o no la varible de tipo get 
+                    if (!isset($_GET['page'])) {
+                        $pagina = 1;
+                    } else {
+                        $pagina = (int) $_GET['page'];
+                        if ($pagina <= 1) {
+                            $pagina = 1;
+                        }
+                    }
+                    $pagina = limpiar_cadena($pagina);
+                    $url = "index.php?mostrar=rol_form&page=";
+                    $registros = 15;
+                    $busqueda = $_SESSION['busqueda_rol'];
+
+                    require_once "./php/rol_lista.php";
+                    }
+                    ?>
         </div>
     </div>
 </div>

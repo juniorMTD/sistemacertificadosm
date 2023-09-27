@@ -4,24 +4,25 @@ $inicio=($pagina>0) ? (($pagina*$registros)-$registros) : 0;
 $tabla="";
 
 if(isset($busqueda)&&$busqueda!=""){
-    $consulta_datos="select * from paciente where
-    dni like '%$busqueda%' or apellidos like '%$busqueda%'
-    ORDER BY idpaciente DESC LIMIT $inicio,$registros";
+    $consulta_datos="select * from rol where nombre_rol 
+    like '%$busqueda%'
+    ORDER BY idrol DESC LIMIT $inicio,$registros";
 
-    $consulta_total="select count(idpaciente) from paciente  where
-    dni like '%$busqueda%' or apellidos like '%$busqueda%'";
+    $consulta_total="select count(idrol) from rol  where
+    nombre_rol like '%$busqueda%'";
 }else{
-    $consulta_datos="select * from paciente 
-    ORDER BY idpaciente DESC LIMIT $inicio,$registros";
+    $consulta_datos="select * from rol 
+    ORDER BY idrol DESC LIMIT $inicio,$registros";
 
-    $consulta_total="select count(idpaciente) from paciente";
+    $consulta_total="select count(idrol) from rol";
 }
 
 $start = new Conexion();
-$conn = $start->Conexiondb();
-
+$conn = $start->Conexionbd();
 
 $datos=$conn->query($consulta_datos);
+
+
 $datos=$datos->fetchAll();/* si es mas de un registro*/
 
 $total=$conn->query($consulta_total);
@@ -34,11 +35,8 @@ $tabla.='
         <thead class="notification is-primary">
             <tr class="has-text-centered">
                 <th>#</th>
-                <th>Nombres</th>
-                <th>Apellidos</th>
-                <th>DNI</th>
-                <th>celular</th>
-                <th class="has-text-centered" colspan="3">Opciones</th>
+                <th>Nombre</th>
+                <th class="has-text-centered" colspan="2">Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -52,18 +50,12 @@ if($total>=1 && $pagina<=$npaginas){
         $tabla.='
             <tr class="has-text-centered">
                 <td>'.$contador.'</td>
-                <td>'.$rows['nombres'].'</td>
-                <td>'.$rows['apellidos'].'</td>
-                <td>'.$rows['dni'].'</td>
-                <td>'.$rows['celular'].'</td>
+                <td>'.$rows['nombre_rol'].'</td>
                 <td>
-                    <a href="index.php?mostrar=paciente_form_lista&idpaciente_form_lista='.$rows['idpaciente'].'" class="button is-warning is-rounded is-small">CONSULTAS</a>
+                    <a href="" class="button is-success is-rounded is-small">Actualizar</a>
                 </td>
                 <td>
-                    <a href="index.php?mostrar=paciente_update&idpaciente_up='.$rows['idpaciente'].'" class="button is-success is-rounded is-small">Actualizar</a>
-                </td>
-                <td>
-                    <a onclick="mialertaeliminar(event);" href="'.$url.$pagina.'&idpaciente_del='.$rows['idpaciente'].'" class="button is-danger is-rounded is-small" >Eliminar</a>
+                    <a onclick="mialertaeliminar(event);" href="" class="button is-danger is-rounded is-small" >Eliminar</a>
                 </td>
             </tr>
         ';
@@ -101,16 +93,19 @@ $tabla.='
 
 if($total>=1 && $pagina<=$npaginas){
     $tabla.='
-    <p class="has-text-right">Mostrando pacientes <strong>"'.$pag_inicio.'"</strong> al <strong>"'.$pag_final.'"</strong> de un <strong>total de '.$total.'</strong></p>
+    <p class="has-text-right">Mostrando los Roles <strong>"'.$pag_inicio.'"</strong> al <strong>"'.$pag_final.'"</strong> de un <strong>total de '.$total.'</strong></p>
     ';
 }
 
-
 $conn=null;
+
+
 echo $tabla;
 
 if($total>=1 && $pagina<=$npaginas){
     echo paginador_tablas($pagina, $npaginas,$url,7);
 }
+
+
 
 ?>
