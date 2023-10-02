@@ -58,7 +58,7 @@
                     $url = "index.php?mostrar=modulo_form&page=";
                     $registros = 15;
                     $busqueda = "";
-                    require_once "./php/modulo_lista.php";
+                    require_once "./php/categoria_lista.php";
 
                     } else {
 

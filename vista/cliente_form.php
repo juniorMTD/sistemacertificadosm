@@ -25,7 +25,7 @@
                 require_once "./php/buscador.php";
                     }
 
-            if (!isset($_SESSION['busqueda_modulo']) && empty($_SESSION['busqueda_modulo'])) {
+            if (!isset($_SESSION['busqueda_cliente']) && empty($_SESSION['busqueda_modulo'])) {
 
                 ?>
                 <div class="columns">
@@ -59,7 +59,7 @@
                     $url = "index.php?mostrar=modulo_form&page=";
                     $registros = 15;
                     $busqueda = "";
-                    require_once "./php/modulo_lista.php";
+                    require_once "./php/cliente_lista.php";
                     
 
                     

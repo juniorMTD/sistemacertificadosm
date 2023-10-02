@@ -4,17 +4,18 @@ $inicio=($pagina>0) ? (($pagina*$registros)-$registros) : 0;
 $tabla="";
 
 if(isset($busqueda)&&$busqueda!=""){
-    $consulta_datos="select * from usuario where nombre_usuario git
+    $consulta_datos="SELECT * FROM cargo c inner JOIN empleado e on e.idcargo=c.idcargo 
     like '%$busqueda%'
-    ORDER BY idusuario DESC LIMIT $inicio,$registros";
+    ORDER BY idempleado DESC LIMIT $inicio,$registros";
 
-    $consulta_total="select count(idususario) from usuario  where
-    nombre_usuario like '%$busqueda%'";
+    $consulta_total="SELECT COUNT(idempleado) FROM cargo c inner JOIN empleado e on e.idcargo=c.idcargo  where
+    nombre_empleado like '%$busqueda%'";
 }else{
-    $consulta_datos="select * from usuario 
-    ORDER BY idusuario DESC LIMIT $inicio,$registros";
+    $consulta_datos="SELECT * FROM cargo c inner JOIN empleado e on e.idcargo=c.idcargo
+    ORDER BY idempleado DESC LIMIT $inicio,$registros";
 
-    $consulta_total="select count(idusuario) from usuario";
+    $consulta_total="SELECT 
+    COUNT(idempleado) FROM cargo c inner JOIN empleado e on e.idcargo=c.idcargo";
 }
 
 $start = new Conexion();
@@ -35,7 +36,11 @@ $tabla.='
         <thead class="notification is-primary">
             <tr class="has-text-centered">
                 <th>#</th>
-                <th>Nombre</th>
+                <th>Nombre/th>
+                <th>Apellidos</th>
+                <th>Celular</th>
+                <th>Correo</th>
+                <th>cargo</th>
                 <th class="has-text-centered" colspan="2">Opciones</th>
             </tr>
         </thead>
@@ -49,9 +54,13 @@ if($total>=1 && $pagina<=$npaginas){
     foreach($datos as $rows){
         $tabla.='
             <tr class="has-text-centered">
-                <td>'.$contador.'</td>
-                <td>'.$rows['nombre_usuario'].'</td>
-                <td>
+            <td>'.$contador.'</td>
+            <td>'.$rows['nombre_empleado'].'</td>
+            <td>'.$rows['apellidos_empleado'].'</td>
+            <td>'.$rows['celular_empleado'].'</td>
+            <td>'.$rows['correo_empleado'].'</td>
+            <td>'.$rows['nombre_cargo'].'</td>
+            <td>
                     <a href="" class="button is-success is-rounded is-small">Actualizar</a>
                 </td>
                 <td>
@@ -93,7 +102,7 @@ $tabla.='
 
 if($total>=1 && $pagina<=$npaginas){
     $tabla.='
-    <p class="has-text-right">Mostrando los usuarios <strong>"'.$pag_inicio.'"</strong> al <strong>"'.$pag_final.'"</strong> de un <strong>total de '.$total.'</strong></p>
+    <p class="has-text-right">Mostrando los empleado <strong>"'.$pag_inicio.'"</strong> al <strong>"'.$pag_final.'"</strong> de un <strong>total de '.$total.'</strong></p>
     ';
 }
 

@@ -4,17 +4,17 @@ $inicio=($pagina>0) ? (($pagina*$registros)-$registros) : 0;
 $tabla="";
 
 if(isset($busqueda)&&$busqueda!=""){
-    $consulta_datos="select * from usuario where nombre_usuario git
+    $consulta_datos="select * from modulo where nombre_modulo 
     like '%$busqueda%'
-    ORDER BY idusuario DESC LIMIT $inicio,$registros";
+    ORDER BY idmodulo DESC LIMIT $inicio,$registros";
 
-    $consulta_total="select count(idususario) from usuario  where
-    nombre_usuario like '%$busqueda%'";
+    $consulta_total="select count(idmodulo) from modulo  where
+    nombre_modulo like '%$busqueda%'";
 }else{
-    $consulta_datos="select * from usuario 
-    ORDER BY idusuario DESC LIMIT $inicio,$registros";
+    $consulta_datos="select * from modulo 
+    ORDER BY idmodulo DESC LIMIT $inicio,$registros";
 
-    $consulta_total="select count(idusuario) from usuario";
+    $consulta_total="select count(idmodulo) from modulo";
 }
 
 $start = new Conexion();
@@ -50,7 +50,7 @@ if($total>=1 && $pagina<=$npaginas){
         $tabla.='
             <tr class="has-text-centered">
                 <td>'.$contador.'</td>
-                <td>'.$rows['nombre_usuario'].'</td>
+                <td>'.$rows['nombre_modulo'].'</td>
                 <td>
                     <a href="" class="button is-success is-rounded is-small">Actualizar</a>
                 </td>
@@ -93,7 +93,7 @@ $tabla.='
 
 if($total>=1 && $pagina<=$npaginas){
     $tabla.='
-    <p class="has-text-right">Mostrando los usuarios <strong>"'.$pag_inicio.'"</strong> al <strong>"'.$pag_final.'"</strong> de un <strong>total de '.$total.'</strong></p>
+    <p class="has-text-right">Mostrando los smodulos <strong>"'.$pag_inicio.'"</strong> al <strong>"'.$pag_final.'"</strong> de un <strong>total de '.$total.'</strong></p>
     ';
 }
 

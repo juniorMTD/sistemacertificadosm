@@ -1,6 +1,6 @@
 <?php
-  require_once "./conexion/coneccion.php";  
-  require_once "./php/validadorsql.php";  
+require_once "./conexion/coneccion.php";  
+require_once "./php/validadorsql.php";  
 ?>
 <div class="container">
     <div>

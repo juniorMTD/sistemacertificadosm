@@ -4,17 +4,17 @@ $inicio=($pagina>0) ? (($pagina*$registros)-$registros) : 0;
 $tabla="";
 
 if(isset($busqueda)&&$busqueda!=""){
-    $consulta_datos="select * from usuario where nombre_usuario git
+    $consulta_datos="select * from curso where nombre_curso
     like '%$busqueda%'
-    ORDER BY idusuario DESC LIMIT $inicio,$registros";
+    ORDER BY idcurso DESC LIMIT $inicio,$registros";
 
-    $consulta_total="select count(idususario) from usuario  where
-    nombre_usuario like '%$busqueda%'";
+    $consulta_total="select count(idcurso) from curso  where
+    nombre_curso like '%$busqueda%'";
 }else{
-    $consulta_datos="select * from usuario 
-    ORDER BY idusuario DESC LIMIT $inicio,$registros";
+    $consulta_datos="select * from curso 
+    ORDER BY idcurso DESC LIMIT $inicio,$registros";
 
-    $consulta_total="select count(idusuario) from usuario";
+    $consulta_total="select count(idcurso) from curso";
 }
 
 $start = new Conexion();
@@ -35,7 +35,17 @@ $tabla.='
         <thead class="notification is-primary">
             <tr class="has-text-centered">
                 <th>#</th>
-                <th>Nombre</th>
+                <th>Codigo</th>
+                <th>Nombre_curso</th>
+                <th>Fecha_inicio</th>
+                <th>Fecha_fin</th>
+                <th>Estado</th>
+                <th>Diseño</th>
+                <th>idinstructor</th>
+                <th>idcategoria</th>
+                <th>identidad</th>
+                <th>idespecialista</th>
+                <th>idhora_lectiva</th>
                 <th class="has-text-centered" colspan="2">Opciones</th>
             </tr>
         </thead>
@@ -48,16 +58,16 @@ if($total>=1 && $pagina<=$npaginas){
 
     foreach($datos as $rows){
         $tabla.='
-            <tr class="has-text-centered">
-                <td>'.$contador.'</td>
-                <td>'.$rows['nombre_usuario'].'</td>
-                <td>
-                    <a href="" class="button is-success is-rounded is-small">Actualizar</a>
-                </td>
-                <td>
-                    <a onclick="mialertaeliminar(event);" href="" class="button is-danger is-rounded is-small" >Eliminar</a>
-                </td>
-            </tr>
+        <tr class="has-text-centered">
+        <td>'.$contador.'</td>
+        <td>'.$rows['codigo'].'</td>
+        <td>
+            <a href="" class="button is-success is-rounded is-small">Actualizar</a>
+        </td>
+        <td>
+            <a onclick="mialertaeliminar(event);" href="" class="button is-danger is-rounded is-small" >Eliminar</a>
+        </td>
+    </tr>
         ';
         $contador++;
     }
@@ -93,7 +103,7 @@ $tabla.='
 
 if($total>=1 && $pagina<=$npaginas){
     $tabla.='
-    <p class="has-text-right">Mostrando los usuarios <strong>"'.$pag_inicio.'"</strong> al <strong>"'.$pag_final.'"</strong> de un <strong>total de '.$total.'</strong></p>
+    <p class="has-text-right">Mostrando los cursos <strong>"'.$pag_inicio.'"</strong> al <strong>"'.$pag_final.'"</strong> de un <strong>total de '.$total.'</strong></p>
     ';
 }
 

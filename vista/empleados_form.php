@@ -20,17 +20,17 @@
         <div class="container pb-6 pt-6 ">
         <?php
 
-            if(isset($_POST['modulo_buscador'])){
+            if(isset($_POST['empleados_buscador'])){
                 require_once "./php/buscador.php";
                     }
 
-            if (!isset($_SESSION['busqueda_modulo']) && empty($_SESSION['busqueda_modulo'])) {
+            if (!isset($_SESSION['busqueda_empleados']) && empty($_SESSION['busqueda_modulo'])) {
 
                 ?>
                 <div class="columns">
                     <div class="column">
                         <form action="" method="POST" autocomplete="off">
-                            <input type="hidden" name="modulo_buscador" value="personal">
+                            <input type="hidden" name="empleado_buscador" value="personal">
                             <div class="field is-grouped">
                                 <P class="control is-expanded">
                                     <input class="input is-rounded" type="text" name="txt_buscador" 
@@ -93,11 +93,11 @@
                         }
                     }
                     $pagina = limpiar_cadena($pagina);
-                    $url = "index.php?mostrar=modulo_form&page=";
+                    $url = "index.php?mostrar=empleados_form&page=";
                     $registros = 15;
-                    $busqueda = $_SESSION['busqueda_modulo'];
+                    $busqueda = $_SESSION['busqueda_empleados'];
 
-                    require_once "./php/modulo_lista.php";
+                    require_once "./php/empleados_lista.php";
                     }
                     ?>
         </div>
