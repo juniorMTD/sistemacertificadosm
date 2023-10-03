@@ -35,7 +35,11 @@ $tabla.='
         <thead class="notification is-primary">
             <tr class="has-text-centered">
                 <th>#</th>
-                <th>Nombre</th>
+                <th>ruc</th>
+                <th>Nombre de la entidad</th>
+                <th>celular de entidad</th>
+                <th>direccion de entidad</th>
+                <th>descripcion de entidad</th>
                 <th class="has-text-centered" colspan="2">Opciones</th>
             </tr>
         </thead>
@@ -50,7 +54,11 @@ if($total>=1 && $pagina<=$npaginas){
         $tabla.='
             <tr class="has-text-centered">
                 <td>'.$contador.'</td>
+                <td>'.$rows['ruc'].'</td>
                 <td>'.$rows['nombre_entidad'].'</td>
+                <td>'.$rows['celular_entidad'].'</td>
+                <td>'.$rows['direccion_emtidad'].'</td>
+                <td>'.$rows['descripcion_entidad'].'</td>
                 <td>
                     <a href="" class="button is-success is-rounded is-small">Actualizar</a>
                 </td>

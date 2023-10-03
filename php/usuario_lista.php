@@ -4,17 +4,18 @@ $inicio=($pagina>0) ? (($pagina*$registros)-$registros) : 0;
 $tabla="";
 
 if(isset($busqueda)&&$busqueda!=""){
-    $consulta_datos="select * from usuario where nombre_usuario git
+    $consulta_datos="SELECT * FROM usuario u INNER JOIN empleado e on u.idempleado=e.idempleado INNER JOIN rol r on u.idrol= r.idrol 
+    where nombre_usuario
     like '%$busqueda%'
     ORDER BY idusuario DESC LIMIT $inicio,$registros";
 
-    $consulta_total="select count(idususario) from usuario  where
-    nombre_usuario like '%$busqueda%'";
+    $consulta_total="SELECT count(idusuario) FROM usuario u INNER JOIN empleado e on u.idempleado=e.idempleado INNER JOIN rol r on u.idrol= r.idrol 
+    where nombre_usuario like '%$busqueda%'";
 }else{
-    $consulta_datos="select * from usuario 
+    $consulta_datos="SELECT * FROM usuario u INNER JOIN empleado e on u.idempleado=e.idempleado INNER JOIN rol r on u.idrol= r.idrol 
     ORDER BY idusuario DESC LIMIT $inicio,$registros";
 
-    $consulta_total="select count(idusuario) from usuario";
+    $consulta_total="SELECT count(idusuario) FROM usuario u INNER JOIN empleado e on u.idempleado=e.idempleado INNER JOIN rol r on u.idrol= r.idrol";
 }
 
 $start = new Conexion();
@@ -35,7 +36,10 @@ $tabla.='
         <thead class="notification is-primary">
             <tr class="has-text-centered">
                 <th>#</th>
-                <th>Nombre</th>
+                <th>Nombre del usuario</th>
+                <th>Estado</th>
+                <th>Empleado</th>
+                <th>Rol</th>
                 <th class="has-text-centered" colspan="2">Opciones</th>
             </tr>
         </thead>
@@ -50,7 +54,10 @@ if($total>=1 && $pagina<=$npaginas){
         $tabla.='
             <tr class="has-text-centered">
                 <td>'.$contador.'</td>
-                <td>'.$rows['nombre_usuario'].'</td>
+                <td>'.$rows['usuario'].'</td>
+                <td>'.$rows['estado'].'</td>
+                <td>'.$rows['nombre_empleado'].' '.$rows['nombre_empleado'].'</td>
+                <td>'.$rows['nombre_rol'].'</td>
                 <td>
                     <a href="" class="button is-success is-rounded is-small">Actualizar</a>
                 </td>

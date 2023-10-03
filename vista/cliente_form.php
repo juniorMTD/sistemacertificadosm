@@ -31,7 +31,7 @@
                 <div class="columns">
                     <div class="column">
                         <form action="" method="POST" autocomplete="off">
-                            <input type="hidden" name="modulo_buscador" value="personal">
+                            <input type="hidden" name="modulo_cliente" value="personal">
                             <div class="field is-grouped">
                                 <P class="control is-expanded">
                                     <input class="input is-rounded" type="text" name="txt_buscador" 
