@@ -4,17 +4,17 @@ $inicio=($pagina>0) ? (($pagina*$registros)-$registros) : 0;
 $tabla="";
 
 if(isset($busqueda)&&$busqueda!=""){
-    $consulta_datos="select * from entidad where nombre_entidad 
+    $consulta_datos="SELECT * FROM entidad where nombre_entidad 
     like '%$busqueda%'
     ORDER BY identidad DESC LIMIT $inicio,$registros";
 
-    $consulta_total="select count(identidad) from entidad  where
+    $consulta_total="SELECT count(identidad) FROM entidad  where
     nombre_entidad like '%$busqueda%'";
 }else{
-    $consulta_datos="select * from entidad
+    $consulta_datos="SELECT * FROM entidad
     ORDER BY identidad DESC LIMIT $inicio,$registros";
 
-    $consulta_total="select count(identidad) from entidad";
+    $consulta_total="SELECT count(identidad) FROM entidad";
 }
 
 $start = new Conexion();
@@ -57,7 +57,7 @@ if($total>=1 && $pagina<=$npaginas){
                 <td>'.$rows['ruc'].'</td>
                 <td>'.$rows['nombre_entidad'].'</td>
                 <td>'.$rows['celular_entidad'].'</td>
-                <td>'.$rows['direccion_emtidad'].'</td>
+                <td>'.$rows['direccion_entidad'].'</td>
                 <td>'.$rows['descripcion_entidad'].'</td>
                 <td>
                     <a href="" class="button is-success is-rounded is-small">Actualizar</a>
