@@ -58,7 +58,7 @@
                     $url = "index.php?mostrar=modulo_form&page=";
                     $registros = 15;
                     $busqueda = "";
-                    require_once "./php/modulo_lista.php";
+                    require_once "./php/instructor_lista.php";
                     
 
                     
@@ -97,7 +97,7 @@
                     $registros = 15;
                     $busqueda = $_SESSION['busqueda_modulo'];
 
-                    require_once "./php/modulo_lista.php";
+                    require_once "./php/instructor_lista.php";
                     }
                     ?>
         </div>
