@@ -4,17 +4,18 @@ $inicio=($pagina>0) ? (($pagina*$registros)-$registros) : 0;
 $tabla="";
 
 if(isset($busqueda)&&$busqueda!=""){
-    $consulta_datos="select * from instructor where nombre_instructor
+    $consulta_datos="SELECT * FROM instructor i INNER JOIN genero g on i.idgenero=g.idgenero 
+    where nombre_instructor
     like '%$busqueda%'
     ORDER BY idinstructor DESC LIMIT $inicio,$registros";
 
-    $consulta_total="select count(idinstructor) from instructor  where
+    $consulta_total="SELECT count(idinstructor) FROM instructor i INNER JOIN genero g on i.idgenero=g.idgenero  where
     nombre_instructor like '%$busqueda%'";
 }else{
-    $consulta_datos="select * from instructor 
+    $consulta_datos="SELECT * FROM instructor i INNER JOIN genero g on i.idgenero=g.idgenero 
     ORDER BY idinstructor DESC LIMIT $inicio,$registros";
 
-    $consulta_total="select count(idinstructor) from instructor";
+    $consulta_total="SELECT count(idinstructor) FROM instructor i INNER JOIN genero g on i.idgenero=g.idgenero";
 }
 
 $start = new Conexion();
@@ -35,7 +36,13 @@ $tabla.='
         <thead class="notification is-primary">
             <tr class="has-text-centered">
                 <th>#</th>
-                <th>Nombre</th>
+                <th>Nombre del instructor</th>
+                <th>Apellido del instructor</th>
+                <th>Grado de instruccion</th>
+                <th>Celular</th>
+                <th>Correo</th>
+                <th>Firma digital</th>
+                <th>Genero</th>
                 <th class="has-text-centered" colspan="2">Opciones</th>
             </tr>
         </thead>
@@ -51,6 +58,12 @@ if($total>=1 && $pagina<=$npaginas){
             <tr class="has-text-centered">
                 <td>'.$contador.'</td>
                 <td>'.$rows['nombre_instructor'].'</td>
+                <td>'.$rows['apellido_instructor'].'</td>
+                <td>'.$rows['grado_instruccion'].'</td>
+                <td>'.$rows['celular_instruccion'].'</td>
+                <td>'.$rows['correo_instruccion'].'</td>
+                <td>'.$rows['firma_digital'].'</td>
+                <td>'.$rows['idgenero'].'</td>
                 <td>
                     <a href="" class="button is-success is-rounded is-small">Actualizar</a>
                 </td>
