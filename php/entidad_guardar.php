@@ -16,16 +16,23 @@ $descripcion=limpiar_cadena($_POST['descripcion']);
 
 $guardar_entidad = $start->conexionbd();
 $guardar_entidad= $guardar_entidad->prepare(
-    'insert into categoria values (:id,:ruc,:nom,:cel,:direc,:descrip)'
+    'insert into entidad values (:id,:ruc,:nom,:cel,:direc,:descrip)'
 );
 $array_entidad = [
     ":id"=>'DEFAULT',
-    ":ruc"=>$codigo,
-    ":nom"=>$nombre,
-    ":cel"=>$estado,
-    ":direc"=>$f_inicio,
-    ":descrip"=>$f_fin
+    ":ruc"=>$ruc,
+    ":nom"=>$nombres,
+    ":cel"=>$celular,
+    ":direc"=>$direccion,
+    ":descrip"=>$descripcion
 
 ];
 
 $guardar_entidad->execute($array_entidad);
+
+if ($guardar_entidad->rowCount() == 1) {
+    echo "!REGISTRADO!,Es usuario se registro correctamente,success";
+    exit();
+} else {
+    echo "!OOPSSS OCURRIO UN ERROR!,No se registro al usuario,error";
+}

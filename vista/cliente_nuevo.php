@@ -33,12 +33,25 @@
 					<input class="input" type="number" name="cliente_dni">
 			</div>
 			</div>
+		
+
 		<div class="column">
-		<div class="control">
-					<label>GENERO (*)</label>
-				<input class="input" type="text" name="cliente_genero">
-				</div>
-		</div>	
+			<div class="control">
+						<label>GENERO (*)</label>
+							<select name="" id="" class="input">
+								<?php								 
+								require_once "./php/consultas.php";
+						
+								foreach($datosgenero as $rows){
+								?>
+								<option value="<?php echo $rows['idgenero'] ?>"><?php echo $rows['nombre_genero'] ?></option>
+								<?php
+								}
+								?>
+							</select>
+			</div>	
+		</div>
+		
 		<div class="column">
 		<div class="control">
 					<label>CELULAR (*)</label>

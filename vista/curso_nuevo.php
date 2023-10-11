@@ -23,7 +23,11 @@
       <div class="column">
           <div class="control">
               <label>ESTADO (*)</label>
-              <input class="input" type="text" name="estado">
+              <select name="" id="" class="input">
+								<option value="">PRESENCIAL</option>
+								<option value="">VIRTUAL</option>
+								<option value="">SEMIPRESENCIAL</option>
+							</select>
           </div>
       </div>
 		</div>

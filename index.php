@@ -18,6 +18,10 @@
             }
 
     ?>
+
+<script src="js/ajx.js"></script>
+<script src="js/sweetaler.js"></script>
+
 </body>
 
 </html>

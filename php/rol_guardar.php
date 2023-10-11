@@ -8,6 +8,10 @@ $start = new Conexion();
 
 $nombre_rol=limpiar_cadena($_POST['rol_nombre']);
 
+if($nombre_rol==""){
+    echo "!OOPSSS OCURRIO UN ERROR!,El nombre es obligatorio completar,error";
+    exit();
+}
 
 
 //esto me sirve para registrar un dato en la bd
@@ -21,6 +25,8 @@ $array_rol = [
 ];
 
 $guardar_rol->execute($array_rol);
+
+
 
 
 

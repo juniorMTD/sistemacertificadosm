@@ -5,19 +5,27 @@ require_once "./validadorsql.php";
 $start = new Conexion();
 
 
-$usuario=limpiar_cadena($_POST['nombre']);
+$nombre_modulo=limpiar_cadena($_POST['nombre']);
 
 
 //esto me sirve para registrar un dato en la bd
 
-$guardar_usuario = $start->conexionbd();
+$nombre_modulo = $start->conexionbd();
 
-$guardar_usuario= $guardar_usuario->prepare(
+$nombre_modulo= $nombre_modulo->prepare(
     'insert into usuario values (:id,:nombre_modulo)'
 );
-$array_usuario= [
+$array_modulo= [
     ":id"=>'DEFAULT',
     ":nombre_modulo"=>$nombre,
 ];
 
-$guardar_usuario->execute($array_usuario);
+$nombre_modulo->execute($array_modulo);
+
+if ($nombre_modulo->rowCount() == 1) {
+    echo "!REGISTRADO!,Es usuario se registro correctamente,success";
+    exit();
+} else {
+    echo "!OOPSSS OCURRIO UN ERROR!,No se registro al usuario,error";
+    exit();
+}
