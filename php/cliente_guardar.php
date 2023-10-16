@@ -10,7 +10,35 @@ $apellidop=limpiar_cadena($_POST['apellidop']);
 $apellidom=limpiar_cadena($_POST['apellidom']);
 $celular=limpiar_cadena($_POST['celular']);
 $correo=limpiar_cadena($_POST['correo']);
-$genero=limpiar_cadena($_POST['genero']);
+
+
+if($dni==""){
+    echo "!OOPSSS OCURRIO UN ERROR!,El dni es obligatorio completar,error";
+    exit();
+}
+if($nombre==""){
+    echo "!OOPSSS OCURRIO UN ERROR!,El nombre es obligatorio completar,error";
+    exit();
+}
+if($apellidop==""){
+    echo "!OOPSSS OCURRIO UN ERROR!,El apellido paterno es obligatorio completar,error";
+    exit();
+}
+
+if($apellidom==""){
+    echo "!OOPSSS OCURRIO UN ERROR!,El apellido materno es obligatorio completar,error";
+    exit();
+}
+if($celular==""){
+    echo "!OOPSSS OCURRIO UN ERROR!,El celular es obligatorio completar,error";
+    exit();
+}
+if($correo==""){
+    echo "!OOPSSS OCURRIO UN ERROR!,El correo es obligatorio completar,error";
+    exit();
+}
+
+
 
 
 //esto me sirve para registrar un dato en la bd

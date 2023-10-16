@@ -6,6 +6,11 @@ $start = new Conexion();
 
 $nombre=limpiar_cadena($_POST['nombre']);
 
+if($nombre ==""){
+    echo "!OOPSSS OCURRIO UN ERROR!,El nmombre es obligatorio completar,error";
+    exit();
+}
+
 
 //esto me sirve para registrar un dato en la bd
 

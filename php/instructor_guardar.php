@@ -13,6 +13,37 @@ $correo=limpiar_cadena($_POST['correo']);
 $instruccion=limpiar_cadena($_POST['grado_instruccion']);
 $firma=limpiar_cadena($_POST['firma_digital']);
 
+
+if($nombre==""){
+    echo "!OOPSSS OCURRIO UN ERROR!,El nombre es obligatorio completar,error";
+    exit();
+}
+if($apellido==""){
+    echo "!OOPSSS OCURRIO UN ERROR!,El apellido es obligatorio completar,error";
+    exit();
+}
+if($generos==""){
+    echo "!OOPSSS OCURRIO UN ERROR!,El genero es obligatorio completar,error";
+    exit();
+}
+if($celular==""){
+    echo "!OOPSSS OCURRIO UN ERROR!,El celular es obligatorio completar,error";
+    exit();
+}
+if($correo==""){
+    echo "!OOPSSS OCURRIO UN ERROR!,El correo es obligatorio completar,error";
+    exit();
+}
+if($instruccion==""){
+    echo "!OOPSSS OCURRIO UN ERROR!,El instrucctor es obligatorio completar,error";
+    exit();
+}
+if($firma==""){
+    echo "!OOPSSS OCURRIO UN ERROR!,El firmar es obligatorio completar,error";
+    exit();
+}
+
+
 //esto me sirve para registrar un dato en la bd
 
 $guardar_instructor = $start->conexionbd();
@@ -32,4 +63,11 @@ $array_instructor = [
 ];
 
 $guardar_instructor->execute($array_instructor);
+
+if ($guardar_instructor->rowCount() == 1) {
+    echo "!REGISTRADO!,Es usuario se registro correctamente,success";
+    exit();
+} else {
+    echo "!OOPSSS OCURRIO UN ERROR!,No se registro al usuario,error";
+}
 

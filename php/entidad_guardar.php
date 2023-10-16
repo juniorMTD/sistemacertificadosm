@@ -11,7 +11,18 @@ $direccion=limpiar_cadena($_POST['direccion']);
 $descripcion=limpiar_cadena($_POST['descripcion']);
 
 
-
+if($ruc==""){
+    echo "!OOPSSS OCURRIO UN ERROR!,Tu ruc es obligatorio completar,error";
+    exit();
+}
+if($nombres==""){
+    echo "!OOPSSS OCURRIO UN ERROR!,El nombre es obligatorio completar,error";
+    exit();
+}
+if($celular==""){
+    echo "!OOPSSS OCURRIO UN ERROR!,El celular es obligatorio completar,error";
+    exit();
+}
 //esto me sirve para registrar un dato en la bd
 
 $guardar_entidad = $start->conexionbd();

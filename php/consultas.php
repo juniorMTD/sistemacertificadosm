@@ -21,4 +21,10 @@
   $datosrol=$conn->query($selecrol);
   $datosrol=$datosrol->fetchAll();
 
+
+   // consulta de cardo del rol
+   $selecmodulo="select  * from modulo;";
+   $datosmodulo=$conn->query($selecmodulo);
+   $datosmodulo=$datosmodulo->fetchAll();
+
 ?>
