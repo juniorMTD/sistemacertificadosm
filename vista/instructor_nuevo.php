@@ -5,7 +5,7 @@
 	</div>
 
 	<div class="form-rest mb-6 mt-6 "></div>
-	<form action="./php/instructor_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" >
+	<form action="./php/instructor_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" enctype="multipart/from-data">
 
 		<h6 ><strong>Datos Personales</strong></h6>
 		<br>
@@ -24,8 +24,8 @@
 			</div>
 			<div class="column">
 		<div class="control">
-					<label>GENERO (*)</label>
-					<input class="input" type="text" name="genero">
+					<label>GRADO INSTRUCCION (*)</label>
+					<input class="input" type="text" name="grado_instruccion">
 				</div>
 			</div>
 			
@@ -45,22 +45,26 @@
 		</div>
 		<div class="column">
 		<div class="control">
-					<label>GRADO INSTRUCCION (*)</label>
-					<input class="input" type="text" name="grado_instruccion">
-				</div>
-		</div>
-		</div>
-		<div class="columns">
-			<div class="column">
-				<div class="control">
 					<label>FIRMA DIGITAL (*)</label>
 					<input class="input" type="file" name="firma_digital">
 				</div>
-			</div>
-			<div class="column">
 		</div>
-			<div class="column">
-			</div>
+		</div>
+		<div class="column">
+			<div class="control">
+						<label>GENERO (*)</label>
+							<select name="" id="" class="input">
+								<?php								 
+								require_once "./php/consultas.php";
+						
+								foreach($datosgenero as $rows){
+								?>
+								<option value="<?php echo $rows['idgenero'] ?>"><?php echo $rows['nombre_genero'] ?></option>
+								<?php
+								}
+								?>
+							</select>
+			</div>	
 		</div>
 		<br>
 		<p class="has-text-centered">
