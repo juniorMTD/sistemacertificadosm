@@ -95,7 +95,7 @@
 			<div class="column">
 				<div class="control">
 					<label>Rol (*)</label>
-					<select name="" id="" class="input">
+					<select name="rol" id="" class="input">
 								<?php								 
 								require_once "./php/consultas.php";
 						
