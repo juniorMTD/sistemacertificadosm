@@ -7,11 +7,10 @@ $start = new Conexion();
 
 $nombre=limpiar_cadena($_POST['nombres']);
 $apellido=limpiar_cadena($_POST['apellidos']);
-$generos=limpiar_cadena($_POST['genero']);
+$instruccion=limpiar_cadena($_POST['grado_instruccion']);
 $celular=limpiar_cadena($_POST['celular']);
 $correo=limpiar_cadena($_POST['correo']);
-$instruccion=limpiar_cadena($_POST['grado_instruccion']);
-$firma=limpiar_cadena($_POST['firma_digital']);
+$firma=limpiar_cadena($_FILES['firma_digital']['name']);
 
 
 if($nombre==""){
@@ -22,44 +21,35 @@ if($apellido==""){
     echo "!OOPSSS OCURRIO UN ERROR!,El apellido es obligatorio completar,error";
     exit();
 }
-if($generos==""){
-    echo "!OOPSSS OCURRIO UN ERROR!,El genero es obligatorio completar,error";
-    exit();
-}
 if($celular==""){
     echo "!OOPSSS OCURRIO UN ERROR!,El celular es obligatorio completar,error";
-    exit();
-}
-if($correo==""){
-    echo "!OOPSSS OCURRIO UN ERROR!,El correo es obligatorio completar,error";
     exit();
 }
 if($instruccion==""){
     echo "!OOPSSS OCURRIO UN ERROR!,El instrucctor es obligatorio completar,error";
     exit();
 }
-if($firma==""){
+if(empty($firma)){
     echo "!OOPSSS OCURRIO UN ERROR!,El firmar es obligatorio completar,error";
     exit();
 }
-
 
 //esto me sirve para registrar un dato en la bd
 
 $guardar_instructor = $start->conexionbd();
 $guardar_instructor= $guardar_instructor->prepare(
-    'insert into categoria values (:id,:nom,:ape,:genero,:cel,:correo,:g_inst,:f_dig)'
+    'insert into categoria values (:id,:nom,:ape,g_inst,:cel,:correo,:f_dig,:genero)'
 );
 $array_instructor = [
     ":id"=>'DEFAULT',
     ":nom"=>$nombre,
     ":ape"=>$apellido,
-    ":genero"=>$generos,
+    ":g_inst"=>$instruccion,
     ":cel"=>$celular,
     ":correo"=>$correo,
-    ":g_inst"=>$instruccion,
-    ":f_dig"=>$firma
-
+    ":f_dig"=>$firma,
+    ":genero"=>$generos
+    
 ];
 
 $guardar_instructor->execute($array_instructor);

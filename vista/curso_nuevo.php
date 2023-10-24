@@ -3,9 +3,9 @@
 		<h1 class="title center_mio">Agregar Nuevo Curso</h1>
 		<hr class="division1">
 	</div>
-
+""
 	<div class="form-rest mb-6 mt-6 "></div>
-	<form action="./php/curso_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" >
+	<form action="./php/curso_guardar.php" method="POST" class="FormularioAjax" autocomplete="off" enctype="multipart/from-data"> 
 		<br>
 		<div class="columns">
 			<div class="column">
@@ -55,7 +55,7 @@
       <div class="column">
         <div class="control">
             <label>DISEÑO DE CERTIFICADO (*)</label>
-            <input class="input" type="file" name="disenio">
+            <input class="input" type="name" name="disenio">
         </div>
       </div>
       <div class="column">
@@ -85,7 +85,7 @@
       <div class="column">
         <div class="control">
           <label>FIRMA ESPECIALISTA (*)</label>
-          <input class="input" type="file" name="firma_especialista">
+          <input class="input" type="name" name="firma_especialista">
         </div>
       </div>
     </div>
@@ -99,7 +99,7 @@
       <div class="column">
         <div class="control">
           <label>FIRMA INSTRUCTOR (*)</label>
-          <input class="input" type="file" name="firma_instructor">
+          <input class="input" type="name" name="firma_instructor">
         </div>
       </div>
 		</div>
