@@ -55,7 +55,7 @@
       <div class="column">
         <div class="control">
             <label>DISEÑO DE CERTIFICADO (*)</label>
-            <input class="input" type="name" name="disenio">
+            <input class="input" type="file" name="disenio">
         </div>
       </div>
       <div class="column">
@@ -85,7 +85,7 @@
       <div class="column">
         <div class="control">
           <label>FIRMA ESPECIALISTA (*)</label>
-          <input class="input" type="name" name="firma_especialista">
+          <input class="input" type="file" name="firma_especialista">
         </div>
       </div>
     </div>
@@ -99,7 +99,7 @@
       <div class="column">
         <div class="control">
           <label>FIRMA INSTRUCTOR (*)</label>
-          <input class="input" type="name" name="firma_instructor">
+          <input class="input" type="file" name="firma_instructor">
         </div>
       </div>
 		</div>
