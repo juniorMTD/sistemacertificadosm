@@ -15,26 +15,26 @@ $firma=limpiar_cadena($_FILES['firma_digital']['name']);//nombre del archivo
 
 
 
-// if($nombre==""){
-//     echo "!OOPSSS OCURRIO UN ERROR!,El nombre es obligatorio completar,error";
-//     exit();
-// }
-// if($apellido==""){
-//     echo "!OOPSSS OCURRIO UN ERROR!,El apellido es obligatorio completar,error";
-//     exit();
-// }
-// if($celular==""){
-//     echo "!OOPSSS OCURRIO UN ERROR!,El celular es obligatorio completar,error";
-//     exit();
-// }
-// if($instruccion==""){
-//     echo "!OOPSSS OCURRIO UN ERROR!,El instrucctor es obligatorio completar,error";
-//     exit();
-// }
-// if(empty($firma)){
-//     echo "!OOPSSS OCURRIO UN ERROR!,El firmar es obligatorio completar,error";
-//     exit();
-// }
+ if($nombre==""){
+     echo "!OOPSSS OCURRIO UN ERROR!,El nombre es obligatorio completar,error";
+     exit();
+ }
+ if($apellido==""){
+     echo "!OOPSSS OCURRIO UN ERROR!,El apellido es obligatorio completar,error";
+     exit();
+ }
+ if($celular==""){
+     echo "!OOPSSS OCURRIO UN ERROR!,El celular es obligatorio completar,error";
+     exit();
+ }
+ if($instruccion==""){
+     echo "!OOPSSS OCURRIO UN ERROR!,El instrucctor es obligatorio completar,error";
+     exit();
+ }
+ if(empty($firma)){
+    echo "!OOPSSS OCURRIO UN ERROR!,El firmar es obligatorio completar,error";
+     exit();
+ }
 
 // validador para almacenar un archivo o imagen 
 
@@ -47,10 +47,10 @@ $url_target = str_replace('\\', './', $ruta_insertada) . '/' .$firma;
 if (!file_exists($ruta_insertada)) {
     mkdir($ruta_insertada, 0777, true);
 };
-
+ 
 
 if (move_uploaded_file($url_temporal, $url_target)) {
-    echo "El archivo " . htmlspecialchars(basename($firma)) . " ha sido cargado con éxito.";
+echo "El archivo " . htmlspecialchars(basename($firma)) . " ha sido cargado con éxito.";
 } else {
     echo "Ha habido un error al cargar tu archivo.";
 }
