@@ -22,26 +22,28 @@
 			</div>
       <div class="column">
           <div class="control">
-              <label>ESTADO (*)</label>
-              <select name="" id="" class="input">
-								<option value="">PRESENCIAL</option>
-								<option value="">VIRTUAL</option>
-								<option value="">SEMIPRESENCIAL</option>
-							</select>
+          <label>FECHA DE INICIO (*)</label>
+              <input class="input" type="date" name="inicio">
+              
           </div>
       </div>
+      
 		</div>
     <div class="columns">
       <div class="column">
           <div class="control">
-              <label>FECHA DE INICIO (*)</label>
-              <input class="input" type="date" name="inicio">
+          <label>FECHA DE FIN (*)</label>
+              <input class="input" type="date" name="fin">
           </div>
       </div>
 			<div class="column">
           <div class="control">
-              <label>FECHA DE FIN (*)</label>
-              <input class="input" type="date" name="fin">
+              <label>ESTADO (*)</label>
+              <select name="estado" id="" class="input">
+								<option value="presencial">PRESENCIAL</option>
+								<option value="virtual">VIRTUAL</option>
+								<option value="semipresencial">SEMIPRESENCIAL</option>
+							</select>
           </div>
       </div>
       <div class="column">
@@ -79,7 +81,7 @@
       <div class="column">
         <div class="control">
           <label>NOMBRE DEL ESPECIALISTA (*)</label>
-          <input class="input" type="text" name="nombre_especialista">
+          <input name="nombre_especialista" type="text" class="input">
         </div>
       </div>
       <div class="column">
@@ -93,7 +95,18 @@
       <div class="column">
         <div class="control">
           <label>NOMBRE DEL INSTRUCTOR (*)</label>
-          <input class="input" type="text" name="nombre_instructor">
+          <select name="nombre_instructor" id="" class="input">
+						<option value="">SELECCIONE</option>
+						<?php
+						require_once "./php/consultas.php";
+
+						foreach ($datosinstructor as $rows) {
+						?>
+							<option value="<?php echo $rows['idinstructor'] ?>"><?php echo $rows['nombre_instructor'] ?></option>
+						<?php
+						}
+						?>
+					</select>        
         </div>
       </div>
       <div class="column">

@@ -22,9 +22,18 @@
   $datosrol=$datosrol->fetchAll();
 
 
-   // consulta de cardo del rol
+   // consulta de modulo
    $selecmodulo="select  * from modulo;";
    $datosmodulo=$conn->query($selecmodulo);
    $datosmodulo=$datosmodulo->fetchAll();
 
+    // consulta de especialista
+    $selecespecialista="select  * from especialista;";
+    $datosespecialista=$conn->query($selecespecialista);
+    $datosespecialista=$datosespecialista->fetchAll();
+
+    // consulta de especialista
+    $selecinstructor="select  * from instructor;";
+    $datosinstructor=$conn->query($selecinstructor);
+    $datosinstructor=$datosinstructor->fetchAll();
 ?>
