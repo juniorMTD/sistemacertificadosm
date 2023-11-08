@@ -177,15 +177,15 @@ $array_curso = [
     ":fin"=>$f_fin,
     ":est"=>$estado,
     ":dis"=>$url_finaldcertificado,
+    ":n_inst"=>$n_instructor,
+    ":f_inst"=>$url_firmainstructor,
     ":lect"=>$h_lectivas,
     ":n_dir"=>$n_director,
     ":f_dir"=>$url_finalfirmadirector,
     ":n_espe"=>$n_especialista,
     ":f_espe"=>$url_firmaespecialista,
-    ":n_inst"=>$n_instructor,
-    ":f_inst"=>$url_firmainstructor,
+   
 ];
-
 $guardar_curso->execute($array_curso);
 
 

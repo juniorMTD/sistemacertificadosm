@@ -70,6 +70,9 @@
                             <a class="navbar-item" href="./index.php?mostrar=instructor_form">
                                 instructor
                             </a>
+                            <a class="navbar-item" href="./index.php?mostrar=especialista_form">
+                                Especialista
+                            </a>
                         </div>
                     </div>
                     <div class="navbar-item has-dropdown is-hoverable">
