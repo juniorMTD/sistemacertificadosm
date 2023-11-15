@@ -66,22 +66,52 @@
         </div>
         <div class="columns">
             <div class="column">
-                <div class="control">
-                    <label>NOMBRE ESPECIALISTA (*)</label>
-                    <select name="nombres_especialista" id="nombresEspecialista" class="input">
-                        <option value="">SELECCIONE</option>
-                        <?php
-            require_once "./php/consultas.php";
-            foreach ($datosespecialista as $rows) {
+                <div class="columns">
+                    <div class="column">
+                        <div class="control">
+                            <label>NOMBRE ESPECIALISTA (*)</label>
+                            <select name="nombres_especialista" id="nombresEspecialista" class="input">
+                                <option value="">SELECCIONE</option>
+                                <?php
+                require_once "./php/consultas.php";
+                foreach ($datosespecialista as $rows) {
+                    $nom_cargo = $start->conexionbd();
+                    $idcargo = $rows['idcargo'];
+
+                    $stmt = $nom_cargo->prepare("SELECT nombre_cargo FROM cargo WHERE idcargo = :idcargo");
+                    $stmt->bindParam(':idcargo', $idcargo, PDO::PARAM_INT);
+                    $stmt->execute();
+
+                    if ($stmt) {
+                        $cargo = $stmt->fetch(PDO::FETCH_COLUMN);
+                        // La opción debe estar dentro del bucle para cada especialista
+                        echo '<option value="' . $rows['idespecialista'] . '" cargo="' . $cargo . '">';
+                        echo $rows['nombres_especialista'];
+                        echo '</option>';
+                    } else {
+                        echo "Error en la consulta";
+                    }
+                }
                 ?>
-                        <option value="<?php echo $rows['idespecialista'] ?>" cargo="<?php echo $rows['idcargo'] ?>">
-                            <?php echo $rows['nombres_especialista'] ?>
-                        </option>
-                        <?php
-            }
-            ?>
-                    </select>
+                            </select>
+                        </div>
+                    </div>
                 </div>
+                <script>
+                var selectEspecialista = document.getElementById("nombresEspecialista");
+                var nombreEspecialista = document.getElementById("nombreEspecialista");
+                var cargoEspecialista = document.getElementById("cargo");
+
+                selectEspecialista.addEventListener("change", function() {
+                    var selectedOption = selectEspecialista.options[selectEspecialista.selectedIndex];
+                    var nombreSeleccionado = selectedOption.text;
+                    var cargoSeleccionado = selectedOption.getAttribute("cargo");
+
+                    nombreEspecialista.textContent = nombreSeleccionado;
+                    cargoEspecialista.textContent = cargoSeleccionado;
+                });
+                </script>
+
             </div>
             <div class="column">
                 <div class="control">
@@ -89,12 +119,38 @@
                         <tr>
                             <th>Nombres y Apellidos</th>
                             <th>Cargo</th>
+                            <th><div class="control">
+                            <label>&nbsp;</label>
+                            <a href="nombreEspecialista" class="button is-info is-rounded">Elimnar</a>
+                        </div></th>
                         </tr>
                         <tr>
                             <td id="nombreEspecialista"></td>
                             <td id="cargo"></td>
                         </tr>
                     </table>
+                    
+                <script>
+                var selectEspecialista = document.getElementById("nombresEspecialista");
+                var especialistaTable = document.getElementById("especialistaTable");
+
+                selectEspecialista.addEventListener("change", function() {
+                    var selectedOption = selectEspecialista.options[selectEspecialista.selectedIndex];
+                    var nombreSeleccionado = selectedOption.text;
+                    var cargoSeleccionado = selectedOption.getAttribute("cargo");
+
+                    // Crea una nueva fila en la tabla
+                    var newRow = especialistaTable.insertRow(1);
+
+                    // Crea las celdas de la fila
+                    var cellNombre = newRow.insertCell(0);
+                    var cellCargo = newRow.insertCell(1);
+
+                    // Asigna los valores a las celdas
+                    cellNombre.textContent = nombreSeleccionado;
+                    cellCargo.textContent = cargoSeleccionado;
+                });
+                </script>
                 </div>
             </div>
             <script>
@@ -110,7 +166,7 @@
                 var selectedOption = selectEspecialista.options[selectEspecialista.selectedIndex];
                 var nombreSeleccionado = selectedOption.text;
                 var cargoSeleccionado = selectedOption.getAttribute("cargo");
-                
+
                 // Actualizar la fila de la tabla con la información del especialista
                 nombreEspecialista.textContent = nombreSeleccionado;
                 cargoEspecialista.textContent = cargoSeleccionado;
