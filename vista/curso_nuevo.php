@@ -119,57 +119,55 @@
                         <tr>
                             <th>Nombres y Apellidos</th>
                             <th>Cargo</th>
-                            <th><div class="control">
-                            <label>&nbsp;</label>
-                            <a href="nombreEspecialista" class="button is-info is-rounded">Elimnar</a>
-                        </div></th>
+                            <th>Acciones</th>
                         </tr>
-                        <tr>
+                        <!-- Cada fila debe tener un identificador único -->
+                        <tr id="filaEspecialista">
                             <td id="nombreEspecialista"></td>
                             <td id="cargo"></td>
+                            <td>
+                                <div class="control">
+                                    <label>&nbsp;</label>
+                                    <!-- Agrega un identificador único al enlace de Eliminar -->
+                                    <a href="#" class="button is-info is-rounded"
+                                        onclick="eliminarFila('filaEspecialista')">Eliminar</a>
+                                </div>
+                            </td>
                         </tr>
                     </table>
-                    
-                <script>
-                var selectEspecialista = document.getElementById("nombresEspecialista");
-                var especialistaTable = document.getElementById("especialistaTable");
-
-                selectEspecialista.addEventListener("change", function() {
-                    var selectedOption = selectEspecialista.options[selectEspecialista.selectedIndex];
-                    var nombreSeleccionado = selectedOption.text;
-                    var cargoSeleccionado = selectedOption.getAttribute("cargo");
-
-                    // Crea una nueva fila en la tabla
-                    var newRow = especialistaTable.insertRow(1);
-
-                    // Crea las celdas de la fila
-                    var cellNombre = newRow.insertCell(0);
-                    var cellCargo = newRow.insertCell(1);
-
-                    // Asigna los valores a las celdas
-                    cellNombre.textContent = nombreSeleccionado;
-                    cellCargo.textContent = cargoSeleccionado;
-                });
-                </script>
                 </div>
             </div>
+
             <script>
-            // Seleccionar el elemento de selección y la tabla
+            // Función para eliminar una fila por su identificador único
+            function eliminarFila(idFila) {
+                var fila = document.getElementById(idFila);
+                fila.remove();
+            }
+
             var selectEspecialista = document.getElementById("nombresEspecialista");
-            var nombreEspecialista = document.getElementById("nombreEspecialista");
-            var cargoEspecialista = document.getElementById("cargo");
-            // Manejar el evento de cambio en el elemento de selección
             selectEspecialista.addEventListener("change", function() {
-                // Obtener el valor seleccionado
-                var selectedValue = selectEspecialista.value;
-                // Buscar el nombre y cargo correspondientes a la selección
                 var selectedOption = selectEspecialista.options[selectEspecialista.selectedIndex];
                 var nombreSeleccionado = selectedOption.text;
                 var cargoSeleccionado = selectedOption.getAttribute("cargo");
 
-                // Actualizar la fila de la tabla con la información del especialista
-                nombreEspecialista.textContent = nombreSeleccionado;
-                cargoEspecialista.textContent = cargoSeleccionado;
+                // Obtén la referencia de la tabla y crea una nueva fila con un identificador único
+                var especialistaTable = document.getElementById("especialistaTable");
+                var newRow = especialistaTable.insertRow(-1);
+                newRow.id = "filaEspecialista";
+
+                // Crea las celdas de la fila
+                var cellNombre = newRow.insertCell(0);
+                var cellCargo = newRow.insertCell(1);
+                var cellEliminar = newRow.insertCell(2);
+
+                // Asigna los valores a las celdas
+                cellNombre.textContent = nombreSeleccionado;
+                cellCargo.textContent = cargoSeleccionado;
+
+                // Agrega el enlace de Eliminar con el identificador único de la fila
+                cellEliminar.innerHTML =
+                    '<div class="control"><label>&nbsp;</label><a href="#" class="button is-info is-rounded" onclick="eliminarFila(\'filaEspecialista\')">Eliminar</a></div>';
             });
             </script>
             <div class="column">
@@ -177,9 +175,16 @@
                     <div class="column">
                         <div class="control">
                             <label>&nbsp;</label>
-                            <a href="index.php?mostrar=especialista_nuevo" class="button is-info is-rounded">Agregar</a>
+                            <a href="index.php?mostrar=especialista_nuevo" class="button is-info is-rounded">Agregar
+                                especialista</a>
                         </div>
                     </div>
+                </div>
+            </div>s
+            <div class="column">
+                <div class="control">
+                    <label>FIRMA ESPECIALISTA (*)</label>
+                    <input class="input" type="file" name="firma_especialista">
                 </div>
             </div>
         </div>
